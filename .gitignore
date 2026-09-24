@@ -1,0 +1,10 @@
+node_modules/
+.next/
+out/
+build/
+coverage/
+/work/
+.DS_Store
+*.tsbuildinfo
+.env*
+!.env.example

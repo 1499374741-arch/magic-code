@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-23T00:00:00.000Z",
+  "title": "Design System: Magic Code",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Target Accent", "canonical": "var(--color-accent-600)" },
+      "surface": { "role": "neutral", "displayName": "Canvas Surface", "canonical": "var(--color-background-primary-default)" },
+      "surface-muted": { "role": "neutral", "displayName": "Navigation Surface", "canonical": "var(--color-background-secondary-default)" }
+    },
+    "typographyMeta": {
+      "title": { "displayName": "Workspace Title", "purpose": "Current conversation and artifact headings." },
+      "body": { "displayName": "Working Copy", "purpose": "Messages and inspector details." },
+      "label": { "displayName": "Compact Label", "purpose": "Navigation and state metadata." },
+      "artifact-display": { "displayName": "Exported Artifact Display", "purpose": "Hero headline in the exported sample HTML, outside workbench chrome." },
+      "artifact-body": { "displayName": "Exported Artifact Body", "purpose": "Supporting copy in exported sample HTML." }
+    },
+    "shadows": [{ "name": "inspector", "value": "var(--shadow-lg)", "purpose": "Contextual preview inspector." }],
+    "motion": [{ "name": "rail-transition", "value": "160ms ease", "purpose": "Sidebar section disclosure." }],
+    "breakpoints": [
+      { "name": "desktop-condensed", "value": "1120px" },
+      { "name": "narrow-workspace", "value": "980px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Navigation Row",
+      "kind": "nav",
+      "refersTo": "workbench-nav",
+      "description": "Compact project or conversation entry.",
+      "html": "<button class=\"ds-nav-row\">项目记录</button>",
+      "css": ".ds-nav-row{height:36px;padding:0 10px;border:0;border-radius:7px;background:var(--color-background-secondary-default);color:var(--color-text-secondary);font:500 14px Inter,sans-serif;text-align:left}.ds-nav-row:hover,.ds-nav-row:focus-visible{background:var(--color-background-secondary-hover);color:var(--color-text-primary)}.ds-nav-row:focus-visible{outline:2px solid var(--color-accent-500);outline-offset:2px}"
+    },
+    {
+      "name": "Context Inspector",
+      "kind": "custom",
+      "refersTo": "inspector-panel",
+      "description": "Floating properties, annotations, and versions within the preview.",
+      "html": "<aside class=\"ds-inspector\"><strong>检查器</strong><p>当前目标 · 页面主按钮</p></aside>",
+      "css": ".ds-inspector{width:280px;padding:12px;border:1px solid var(--color-border-button-default);border-radius:9px;background:var(--color-background-primary-default);color:var(--color-text-primary);box-shadow:var(--shadow-lg);font:400 14px Inter,sans-serif}.ds-inspector strong{display:block;margin-bottom:12px}.ds-inspector p{color:var(--color-text-secondary)}"
+    },
+    {
+      "name": "Agent Composer",
+      "kind": "custom",
+      "description": "Compact input pill within a light contextual tray.",
+      "html": "<div class=\"ds-composer-tray\"><div class=\"ds-composer-pill\"><span>添加</span><span>问我任何问题…</span><span>演示模型</span><span>发送</span></div><small>本地 · 项目记录　 Agent · --</small></div>",
+      "css": ".ds-composer-tray{padding:12px 14px 10px;border-radius:24px;background:var(--color-background-secondary-default);color:var(--color-text-secondary);font:400 14px Inter,sans-serif}.ds-composer-pill{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;padding:6px 12px;margin-bottom:10px;border:1px solid var(--color-separator-border);border-radius:999px;background:var(--color-background-primary-default);box-shadow:var(--shadow-xs)}.ds-composer-pill:focus-within{outline:2px solid var(--color-border-focus-ring);outline-offset:2px}.ds-composer-tray small{font-size:12px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "精密标注台",
+    "overview": "Conversation and artifact share one restrained operating workspace. Navigation and contextual inspection remain present without competing with the work.",
+    "keyCharacteristics": ["Three-column workbench", "Semantic BoardUI surfaces", "Visible target feedback"],
+    "rules": [
+      { "name": "The Target Rule", "body": "Selection pairs an outline with a textual element name.", "section": "colors" },
+      { "name": "The Artifact Rule", "body": "Preview inspection is contextual, not a permanent fourth column.", "section": "layout" }
+    ],
+    "dos": ["Show active project and conversation", "Keep side questions separate from the main chat"],
+    "donts": ["Add marketing panels to the workspace", "Hard-code workbench colors outside BoardUI semantic tokens"]
+  }
+}
